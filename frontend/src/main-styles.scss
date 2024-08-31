@@ -2,11 +2,10 @@
 
 $turquoise: #44ddd0;
 $green: #27d7a1;
-$light-green: #45f69e; 
+$light-green: #45f69e;
 $dark-green: rgb(0, 100, 80);
 
 $light: #f8f8f8;
-
 
 // Update Bulma's global variables
 $family-sans-serif: "Nunito", sans-serif;
@@ -14,22 +13,21 @@ $primary: $green;
 
 $link: $turquoise;
 
-
 // Update some of Bulma's component variables
-
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
 
-
 // Set custom global styles (will be applied to whole app)
-
 html {
     background: linear-gradient(to right top, $turquoise, $green);
 }
 
 html, body {
     height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
 }
 
 .centered-content {
@@ -37,9 +35,31 @@ html, body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: 100vh; /* Full viewport height */
+    padding: 20px; /* Adds space around the edges */
 }
 
+.white-box {
+    padding: 35px;
+    background: white;
+    border-radius: 5px;
+    width: 350px;
+    max-width: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for better distinction */
+    display: flex;
+    flex-direction: column; /* Arrange content vertically */
+    align-items: center; /* Center child elements inside */
+}
+
+.title {
+    font-family: 'Lato', sans-serif;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-align: center; /* Center text alignment */
+    color: $primary; /* Use primary color for better visibility */
+}
 .modal-box {
     min-height: 200px;
     width: 100%;
@@ -47,21 +67,30 @@ html, body {
     background: white;
     border-radius: 5px;
     padding: 35px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for emphasis */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically within the box */
+    align-items: center; /* Centers content horizontally */
+}  
+
+.field {
+    width: 100%; /* Ensure input fields stretch across the white-box width */
 }
 
-.title {
-    font-family: 'Lato';
-    font-size: 24px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+input {
+    width: 100%; /* Full width for inputs to look uniform */
 }
 
-.white-box {
-    padding: 35px;
-    background: white;
-    border-radius: 5px;
+.button.is-success {
+    width: 100%; /* Full width button to match input fields */
+    background-color: $green;
+}
 
-    width: 350px;
-    max-width: 350px;
-    
+.has-text-grey {
+    text-align: center; /* Center text and links below the form */
+}
+
+p.control {
+    margin-top: 10px; /* Add space between button and other elements */
 }

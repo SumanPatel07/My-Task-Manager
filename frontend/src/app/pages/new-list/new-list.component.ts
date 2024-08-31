@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { List } from 'src/app/models/list.model';
 import { TaskService } from 'src/app/task.service';
 
 @Component({
@@ -14,10 +15,10 @@ export class NewListComponent {
   }
 
   createList(title: string) {
-    this.taskService.createList(title).subscribe((response: any) => {
-      console.log(response);
+    this.taskService.createList(title).subscribe((list: List) => {
+      console.log(list);
       // Now we navigate to /lists/reponse.id
-      this.router.navigate([ '/lists', response._id ]); 
+      this.router.navigate([ '/lists', list._id ]); 
     });
   }
 

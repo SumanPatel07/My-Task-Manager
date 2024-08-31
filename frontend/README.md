@@ -1,4 +1,11 @@
 # Frontend
+git status
+git add .
+git commit -m "comment"
+git push
+ng build --output-path=dist/Notes-App --base-href "https://SumanPatel07.github.io/My-Task-manager/"       
+npx angular-cli-ghpages --dir=dist/My-Task-manager
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.11.
 
