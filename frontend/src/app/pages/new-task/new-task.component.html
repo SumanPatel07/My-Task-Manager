@@ -7,13 +7,18 @@
       class="input has-background-light is-medium"
       type="text"
       placeholder="Enter task name..."
+      [ngClass]="{ 'is-danger': showTitleError }"
+      (focus)="onTitleFocus()"
+      (blur)="onTitleBlur(taskTitleInput.value)"
     />
+    <p class="help is-danger" *ngIf="showTitleError">Title is required.</p>
     <br /><br />
     <div class="buttons is-right">
-      <button class="button is-medium" routerLink="/">Cancel</button>
+      <button class="button is-medium" (click)="cancelButtonClick()">Cancel</button>
       <button
         class="button is-primary has-text-white is-medium"
-        (click)="createTask(taskTitleInput.value)"
+        [disabled]="showTitleError"
+        (click)="createTask(taskTitleInput.value.trim())"
       >
         Create
       </button>

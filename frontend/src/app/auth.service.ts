@@ -114,4 +114,36 @@ export class AuthService {
         map(() => undefined) // Transform the result to match the void type
       );
   }  
+
+  isAuthenticated(): Observable<boolean> {
+    const accessToken = this.getAccessToken();
+    if (!accessToken) {
+      return of(false); // No access token means not authenticated
+    }
+  
+    // Call an endpoint to check token validity
+    return this.http.get(`${this.webService.ROOT_URL}/auth/verify-token`, {
+      headers: { 'x-access-token': accessToken },
+      observe: 'response'
+    }).pipe(
+      map(res => res.status === 200),
+      catchError(() => of(false))
+    );
+  }
+  
+  isTokenValid(): Observable<boolean> {
+    const accessToken = this.getAccessToken();
+    if (!accessToken) {
+      return of(false); // No access token means not authenticated
+    }
+
+    // Call an endpoint to check token validity
+    return this.http.get(`${this.webService.ROOT_URL}/auth/verify-token`, {
+      headers: { 'x-access-token': accessToken },
+      observe: 'response'
+    }).pipe(
+      map(res => res.status === 200),
+      catchError(() => of(false))
+    );
+  }
 }

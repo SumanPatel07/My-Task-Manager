@@ -7,13 +7,20 @@
       class="input has-background-light is-medium"
       type="text"
       placeholder="Enter list name..."
+      [ngClass]="{'is-danger': showTitleError}"
+      (input)="onInputChange(listTitleInput.value)"
+      (blur)="onTitleBlur(listTitleInput.value)"
     />
+    <p class="help is-danger" *ngIf="showTitleError">
+      Title is required.
+    </p>
     <br /><br />
     <div class="buttons is-right">
-      <button class="button is-medium" routerLink="/">Cancel</button>
+      <button class="button is-medium" (click)="cancelButtonClick()">Cancel</button>
       <button
         class="button is-primary has-text-white is-medium"
-        (click)="createList(listTitleInput.value)"
+        [disabled]="showTitleError"
+        (click)="createList(listTitleInput.value.trim())"
       >
         Create
       </button>
