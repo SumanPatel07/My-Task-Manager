@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { List } from 'src/app/models/list.model';
 import { Task } from 'src/app/models/task.model';
 import { TaskService } from 'src/app/task.service';
+import { AuthService } from 'src/app/auth.service'; // Import AuthService
 
 @Component({
   selector: 'app-task-view',
@@ -19,7 +20,8 @@ export class TaskViewComponent implements OnInit {
   constructor(
     private taskService: TaskService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private authService: AuthService // Inject AuthService
   ) {}
 
   ngOnInit() {
@@ -69,6 +71,10 @@ export class TaskViewComponent implements OnInit {
     this.taskService.deleteTask(this.selectedListId, id).subscribe(() => {
       this.tasks = this.tasks.filter(val => val._id !== id);
     });
+  }
+
+  onLogout() {
+    this.authService.logout();
   }
 
   showConfettiOnTask(index: number) {

@@ -10,6 +10,7 @@
       [ngClass]="{ 'is-danger': showTitleError }"
       (focus)="onTitleFocus()"
       (blur)="onTitleBlur(taskTitleInput.value)"
+      (keydown.enter)="createTask(taskTitleInput.value.trim())"
     />
     <p class="help is-danger" *ngIf="showTitleError">Title is required.</p>
     <br /><br />

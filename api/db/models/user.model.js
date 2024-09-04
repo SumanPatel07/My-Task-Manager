@@ -149,6 +149,14 @@ UserSchema.pre('save', function (next) {
     }
 });
 
+UserSchema.methods.removeSession = function (token) {
+    return new Promise((resolve, reject) => {
+        this.sessions = this.sessions.filter((session) => session.token !== token);
+
+        this.save().then(() => resolve()).catch((e) => reject(e));
+    });
+};
+
 /* HELPER METHODS */
 let saveSessionToDatabase = (user, refreshToken) => {
     // Save session to database

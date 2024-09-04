@@ -49,6 +49,13 @@
                 >
                   Delete List
                 </a>
+                <!-- Logout Button -->
+                <a
+                  (click)="onLogout()"
+                  class="dropdown-item has-text-danger"
+                >
+                  Logout
+                </a>
               </div>
             </div>
           </div>
@@ -73,7 +80,8 @@
               title="Edit Task"
               [disabled]="task.completed"
               [ngClass]="{ 'is-disabled': task.completed }"
-            >
+              (click)="$event.stopPropagation()"
+              >
               <div class="icon">
                 <i class="fas fa-edit"></i>
               </div>
@@ -82,7 +90,7 @@
             <!-- Delete Button with Tooltip -->
             <button
               class="button is-danger"
-              (click)="onDeleteTaskClick(task._id)"
+              (click)="onDeleteTaskClick(task._id); $event.stopPropagation()"
               title="Delete Task"
               style="margin-left: 10px"
             >

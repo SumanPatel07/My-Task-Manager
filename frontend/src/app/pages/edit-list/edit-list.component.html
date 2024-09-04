@@ -12,6 +12,7 @@
       (input)="onInputChange(listTitleInput.value)"
       (focus)="onTitleFocus()"
       (blur)="onTitleBlur(listTitleInput.value)"
+      (keydown.enter)="updateList(listTitleInput.value.trim())"
     />
     <p class="help is-danger" *ngIf="showTitleError">List title is required.</p>
     <br /><br />

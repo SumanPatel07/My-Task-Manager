@@ -98,4 +98,18 @@ router.get('/me/access-token', verifySession, (req, res) => {
     });
 });
 
+// Logout route
+router.post('/logout', verifySession, (req, res) => {
+    const { userObject, refreshToken } = req;
+
+    userObject.removeSession(refreshToken)
+        .then(() => {
+            res.status(200).send({ message: 'Logged out successfully.' });
+        })
+        .catch((e) => {
+            res.status(400).send({ error: 'Failed to log out.' });
+        });
+});
+
+
 module.exports = router;

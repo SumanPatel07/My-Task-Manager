@@ -12,7 +12,8 @@
           [ngClass]="{'is-danger': showEmailError}"
           (focus)="onEmailFocus()"
           (blur)="onEmailBlur(emailInput.value)"
-        />
+          (keydown.enter)="onLoginButtonClicked(emailInput.value, pwInput.value)"
+          />
         <span class="icon is-small is-left">
           <i class="fas fa-envelope"></i>
         </span>
@@ -30,6 +31,7 @@
           [ngClass]="{'is-danger': showPasswordError || isPasswordTooShort}"
           (focus)="onPasswordFocus()"
           (blur)="onPasswordBlur(pwInput.value)"
+          (keydown.enter)="onLoginButtonClicked(emailInput.value, pwInput.value)"
         />
         <span class="icon is-small is-left">
           <i class="fas fa-lock"></i>

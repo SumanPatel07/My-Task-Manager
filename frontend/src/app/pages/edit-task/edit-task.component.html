@@ -12,6 +12,7 @@
       (input)="onInputChange(taskTitleInput.value)"
       (focus)="onTitleFocus()"
       (blur)="onTitleBlur(taskTitleInput.value)"
+      (keydown.enter)="updateTask(taskTitleInput.value.trim())"
     />
     <p class="help is-danger" *ngIf="showTitleError">Task title is required.</p>
     <br /><br />

@@ -10,6 +10,7 @@
       [ngClass]="{'is-danger': showTitleError}"
       (input)="onInputChange(listTitleInput.value)"
       (blur)="onTitleBlur(listTitleInput.value)"
+      (keydown.enter)="createList(listTitleInput.value.trim())"
     />
     <p class="help is-danger" *ngIf="showTitleError">
       Title is required.
