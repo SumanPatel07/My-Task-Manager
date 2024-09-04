@@ -3,7 +3,7 @@ git status
 git add .
 git commit -m "comment"
 git push
-ng build --output-path=dist/Notes-App --base-href "https://SumanPatel07.github.io/My-Task-manager/"       
+ng build --output-path=dist/My-Task-manager --base-href "https://SumanPatel07.github.io/My-Task-manager/"       
 npx angular-cli-ghpages --dir=dist/My-Task-manager
 
 Step 1 - ng add angular-cli-ghpages
