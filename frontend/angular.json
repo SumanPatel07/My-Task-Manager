@@ -36,6 +36,7 @@
           },
           "configurations": {
             "production": {
+              "outputPath": "dist/frontend",
               "budgets": [
                 {
                   "type": "initial",
@@ -48,7 +49,8 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/My-Task-Manager/frontend/"
             },
             "development": {
               "buildOptimizer": false,
