@@ -8,6 +8,10 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { EditListComponent } from './pages/edit-list/edit-list.component';
 import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 import { AuthGuard } from './pages/AuthGuard';
+import { MediaComponent } from './SideNav/media/media.component';
+import { MoodComponent } from './SideNav/mood/mood.component';
+import { SettingsComponent } from './SideNav/settings/settings.component';
+import { StatisticsComponent } from './SideNav/statistics/statistics.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'lists', pathMatch: 'full' },
@@ -20,6 +24,11 @@ const routes: Routes = [
   { path: 'lists/:listId', component: TaskViewComponent, canActivate: [AuthGuard] },
   { path: 'lists/:listId/new-task', component: NewTaskComponent, canActivate: [AuthGuard] },
   { path: 'lists/:listId/edit-task/:taskId', component: EditTaskComponent, canActivate: [AuthGuard] },
+  {path: 'dashboard', component: TaskViewComponent},
+  {path: 'statistics', component: StatisticsComponent},
+  {path: 'mood', component: MoodComponent},
+  {path: 'media', component: MediaComponent},
+  {path: 'settings', component: SettingsComponent}
 ];
 
 @NgModule({

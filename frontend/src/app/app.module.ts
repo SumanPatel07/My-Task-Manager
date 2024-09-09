@@ -1,6 +1,6 @@
+// app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TaskViewComponent } from './pages/task-view/task-view.component';
@@ -12,6 +12,13 @@ import { WebReqInterceptor } from './web-req.interceptor.service';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { EditListComponent } from './pages/edit-list/edit-list.component';
 import { EditTaskComponent } from './pages/edit-task/edit-task.component';
+import { BodyComponent } from './SideNav/body/body.component';
+import { SidenavComponent } from './SideNav/sidenav/sidenav.component';
+import { StatisticsComponent } from './SideNav/statistics/statistics.component';
+import { SettingsComponent } from './SideNav/settings/settings.component';
+import { SublevelMenuComponent } from './SideNav/sidenav/sublevel-menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -22,18 +29,24 @@ import { EditTaskComponent } from './pages/edit-task/edit-task.component';
     LoginPageComponent,
     SignupPageComponent,
     EditListComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    BodyComponent,
+    SidenavComponent,
+    StatisticsComponent,
+    SettingsComponent,
+    SublevelMenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: WebReqInterceptor,
-      multi: true // Ensures multiple interceptors can be used if needed
+      multi: true
     }
   ],
   bootstrap: [AppComponent]

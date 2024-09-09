@@ -1,0 +1,193 @@
+.container {
+    display: flex;
+    }
+    
+    .calendar-left {
+     width: 300px;
+     height: 500px;
+     border-radius: 20px 0 0 20px;
+     background-color: #2ECC71;
+     color: white;
+     padding: 20px;
+     box-sizing: border-box;
+     position: relative;
+    }
+    
+    .calendar-base {
+     width: 600px;
+     height: 500px;
+     border-radius: 20px;
+     background-color: white;
+     position: relative;
+     z-index: -1;
+     color: black;
+     padding: 20px;
+     box-sizing: border-box;
+    
+     .year {
+      color: #E8E8E8;
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      position: relative;
+      top: 10px;
+     }
+    
+     .triangle-left,
+     .triangle-right {
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      position: absolute;
+      top: 15px;
+      cursor: pointer;
+     }
+    
+     .triangle-left {
+      border-right: 10px solid #E8E8E8;
+      left: 10px;
+    
+      &:hover {
+       border-right: 10px solid #2ECC71;
+      }
+     }
+    
+     .triangle-right {
+      border-left: 10px solid #E8E8E8;
+      right: 10px;
+    
+      &:hover {
+       border-left: 10px solid #2ECC71;
+      }
+     }
+    
+     .months {
+      color: #AAAAAA;
+      text-align: center;
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      flex-wrap: wrap;
+    
+      .month-hover {
+       &:hover {
+        color: #27e879 !important;
+       }
+      }
+    
+      .current-month {
+       color: #27AE60; // Adjust color for highlighted current month
+       font-weight: bold; // Optionally, apply bold font for the current month
+      }
+     }
+    
+     .month-line {
+      border-color: #E8E8E8;
+      margin: 10px auto;
+      width: 80%;
+     }
+    
+     .days {
+      color: #AAAAAA;
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-around;
+     }
+    
+     .num-dates {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    
+      .week {
+       display: flex;
+       width: 100%;
+       justify-content: space-between;
+    
+       .day {
+        width: calc(100% / 7);
+        height: 50px; /* Adjust height as needed */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 10px;
+        font-weight: bold;
+        line-height: 50px; /* Center the text vertically */
+    
+        &.current-date {
+         background-color: #2ECC71;
+         color: white;
+         border-radius: 5px;
+         line-height: normal; /* Reset line-height for current date */
+         display: flex;
+         align-items: center;
+         justify-content: center;
+        }
+    
+        &.current-month-date {
+         color: black;
+        }
+    
+        &.grey {
+         color: #AAAAB1;
+        }
+       }
+      }
+     }
+    }
+    
+    
+    .grey {
+     color: #AAAAB1;
+    }
+    
+    .rating-container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     margin: 20px;
+    }
+    
+    .rating-blocks {
+     display: flex;
+     flex-direction: column; /* Change to column for vertical layout */
+     align-items: center;
+    }
+    
+    .block {
+     display: inline-block;
+     width: 30px;
+     height: 30px;
+     background-color: #ddd;
+     margin: 5px;
+     cursor: pointer;
+     transition: background-color 0.2s ease, border 0.2s ease;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     box-sizing: border-box; /* Ensure padding/border is included in width/height */
+    }
+    
+    .block:hover {
+     background-color: #ccc;
+    }
+    
+    .selected-rating {
+     margin-top: 10px;
+     font-weight: bold;
+    }
+    
+    .block.active {
+     border: 2px solid #f00; /* Adjust to your desired highlight color */
+    }
+    
+    .rating-number {
+     font-weight: bold;
+    }

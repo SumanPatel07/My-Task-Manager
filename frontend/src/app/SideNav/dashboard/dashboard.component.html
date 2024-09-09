@@ -1,0 +1,63 @@
+<div class="dashboard-container">
+    <h1>Dashboard</h1>
+    <span>Hi Suman</span>
+</div>
+<div class="container">
+    <div class="calendar-left">
+      <div class="hamburger">
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+      </div>
+      <div class="num-date">4</div>
+      <div class="day">Tuesday</div>
+      <div class="current-events">
+        Current Events
+        <br />
+        <ul>
+          <li>Day 09 Daily CSS Image</li>
+        </ul>
+        <span class="posts">See post events</span>
+      </div>
+      <div class="create-event">Create an Event</div>
+      <hr class="event-line" />
+      <div class="add-event"><span class="add">+</span></div>
+    </div>
+    <div class="calendar-base">
+      <div class="triangle-left" (click)="changeMonth(-1)"></div>
+      <div class="year">
+        {{ currentYear }}
+      </div>
+      <div class="triangle-right" (click)="changeMonth(1)"></div>
+  
+      <hr class="month-line" />
+  
+      <div class="days">
+        <span *ngFor="let day of ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']">{{ day }}</span>
+      </div>
+  
+      <div class="num-dates">
+        <div class="week" *ngFor="let week of weeks">
+          <span class="day"
+            *ngFor="let dayObj of week"
+            
+            [style.background-color]="dayObj.currentMonth && dayObj.day === currentDate ? getCurrentDateBackgroundColor() : ''">
+            {{ dayObj.day }}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="rating-container">
+      <div class="rating-blocks">
+        <span class="block"
+              *ngFor="let rating of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+              (click)="onRateClick(rating)"
+              [style.background-color]="getBackgroundColor(rating)">
+          <span class="rating-number" [style.color]="getNumberColor(rating)">{{ rating }}</span>
+        </span>
+      </div>
+      <span class="selected-rating">Selected Rating: {{ selectedRating }}</span>
+    </div>
+</div>
+  
+  

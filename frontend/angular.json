@@ -30,13 +30,19 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
             "scripts": []
           },
           "configurations": {
             "production": {
-              "outputPath": "dist/frontend",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -53,12 +59,14 @@
               "baseHref": "/My-Task-Manager/frontend/"
             },
             "development": {
+              "fileReplacements": [],
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "baseHref": "/"
             }
           },
           "defaultConfiguration": "production"

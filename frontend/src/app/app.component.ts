@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
+  collapsed = false;
+  screenWidth = 0;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.screenWidth = window.innerWidth;
+  }
+
+  onToggleSideNav(toggle: { screenWidth: number, collapsed: boolean }) {
+    this.screenWidth = toggle.screenWidth;
+    this.collapsed = toggle.collapsed;
+  }
 }

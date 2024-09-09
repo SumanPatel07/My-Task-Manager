@@ -1,0 +1,44 @@
+.rating-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .rating-blocks {
+    display: flex;
+    flex-direction: column; /* Change to column for vertical layout */
+    align-items: center;
+  }
+  
+  .block {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; /* Ensure padding/border is included in width/height */
+  }
+  
+  .block:hover {
+    background-color: #ccc;
+  }
+  
+  .selected-rating {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .block.active {
+    border: 2px solid #f00; /* Adjust to your desired highlight color */
+  }
+  
+  .rating-number {
+    font-weight: bold;
+  }
+  

@@ -1,0 +1,43 @@
+<div class="container">
+   <div class="calendar-base">
+     <div class="triangle-left" (click)="changeMonth(-1)"></div>
+     <div class="year">
+       {{ currentYear }}
+     </div>
+     <div class="triangle-right" (click)="changeMonth(1)"></div>
+ 
+     <hr class="month-line" />
+ 
+     <div class="days">
+       <span *ngFor="let day of ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']">{{ day }}</span>
+     </div>
+ 
+     <div class="num-dates">
+       <div class="week" *ngFor="let week of weeks">
+         <span class="day"
+           *ngFor="let dayObj of week"
+           [ngClass]="{
+             'current-date': dayObj.currentMonth && dayObj.day === currentDate,
+             'current-month-date': dayObj.currentMonth && dayObj.day !== currentDate,
+             'grey': !dayObj.currentMonth
+           }"
+           [style.background-color]="dayObj.currentMonth && dayObj.day === currentDate ? getCurrentDateBackgroundColor() : ''">
+           {{ dayObj.day }}
+         </span>
+       </div>
+     </div>
+   </div>
+   <div class="rating-container">
+     <div class="rating-blocks">
+       <span class="block"
+             *ngFor="let rating of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+             (click)="onRateClick(rating)"
+             [ngClass]="{'active': isActive(rating)}"
+             [style.background-color]="getBackgroundColor(rating)">
+         <span class="rating-number" [style.color]="getNumberColor(rating)">{{ rating }}</span>
+       </span>
+     </div>
+     <span class="selected-rating">Selected Rating: {{ selectedRating }}</span>
+   </div>
+ </div>
+ 
