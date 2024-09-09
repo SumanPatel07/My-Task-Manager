@@ -24,7 +24,7 @@ import { fadeInOut, INavbarData } from './helper';
             <span class="sublevel-link-text" @fadeInOut 
                 *ngIf="collapsed">{{item.label}}</span>
             <i *ngIf="item.items && collapsed" class="menu-collapse-icon"
-              [ngClass]="!item.expanded ? 'fal fa-angle-right' : 'fal fa-angle-down'"
+              [ngClass]="!item.expanded ? 'fas fa-angle-right' : 'fas fa-angle-down'"
             ></i>
           </a>
           <a class="sublevel-nav-link"

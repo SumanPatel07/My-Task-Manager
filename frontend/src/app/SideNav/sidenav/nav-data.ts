@@ -11,7 +11,34 @@ export const navbarData: INavbarData[] = [
         icon: 'fas fa-box-open', // Updated from 'fal' to 'fas'
         label: 'Products',
         items: [
-            // Nested items
+            {
+                routeLink: 'products/level1.1',
+                label: 'Level 1.1',
+                items: [
+                    {
+                        routeLink: 'products/level2.1',
+                        label: 'Level 2.1',
+                    },
+                    {
+                        routeLink: 'products/level2.2',
+                        label: 'Level 2.2',
+                        items: [
+                            {
+                                routeLink: 'products/level3.1',
+                                label: 'Level 3.1'
+                            },
+                            {
+                                routeLink: 'products/level3.2',
+                                label: 'Level 3.2'
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                routeLink: 'products/level1.2',
+                label: 'Level 1.2',
+            }
         ]
     },
     {
@@ -24,7 +51,14 @@ export const navbarData: INavbarData[] = [
         icon: 'fas fa-tags', // Updated from 'fal' to 'fas'
         label: 'Coupens',
         items: [
-            // Nested items
+            {
+                routeLink: 'coupens/list',
+                label: 'List Coupens'
+            },
+            {
+                routeLink: 'coupens/create',
+                label: 'Create Coupens'
+            }
         ]
     },
     {
@@ -43,7 +77,14 @@ export const navbarData: INavbarData[] = [
         label: 'Settings',
         expanded: true,
         items: [
-            // Nested items
+            {
+                routeLink: 'settings/profile',
+                label: 'Profile'
+            },
+            {
+                routeLink: 'settings/customize',
+                label: 'Customize'
+            }
         ]
     },
 ];

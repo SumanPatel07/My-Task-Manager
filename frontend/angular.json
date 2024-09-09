@@ -56,7 +56,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/My-Task-Manager/frontend/"
+              "baseHref": "/My-Task-Manager/"
             },
             "development": {
               "fileReplacements": [],
