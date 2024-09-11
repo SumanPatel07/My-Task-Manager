@@ -50,10 +50,7 @@
                   Delete List
                 </a>
                 <!-- Logout Button -->
-                <a
-                  (click)="onLogout()"
-                  class="dropdown-item has-text-danger"
-                >
+                <a (click)="onLogout()" class="dropdown-item has-text-danger">
                   Logout
                 </a>
               </div>
@@ -81,7 +78,7 @@
               [disabled]="task.completed"
               [ngClass]="{ 'is-disabled': task.completed }"
               (click)="$event.stopPropagation()"
-              >
+            >
               <div class="icon">
                 <i class="fas fa-edit"></i>
               </div>
@@ -110,14 +107,12 @@
           routerLink="./new-task"
           class="circle-add-button button is-primary"
         >
-          <img src="../../../assets/plus-icon.svg" class="has-text-white" />
+        <i class="fas fa-plus"></i>
         </button>
       </div>
 
       <div *ngIf="!tasks">
-        <h3 class="empty-state-text">
-          Please select a list from the sidebar
-        </h3>
+        <h3 class="empty-state-text">Please select a list from the sidebar</h3>
       </div>
     </div>
   </div>

@@ -3,9 +3,11 @@ git status
 git add .
 git commit -m "comment"
 git push
-ng build --output-path=dist/frontend --base-href "https://SumanPatel07.github.io/My-Task-manager/"  
-ng build --configuration production --base-href "/My-Task-Manager/frontend/"
-     
+--ng build --output-path=dist/frontend --base-href "https://SumanPatel07.github.io/My-Task-manager/"  
+
+
+ng build --configuration production --base-href "/My-Task-Manager/"
+
 npx angular-cli-ghpages --dir=dist/frontend
 
 Step 1 - ng add angular-cli-ghpages

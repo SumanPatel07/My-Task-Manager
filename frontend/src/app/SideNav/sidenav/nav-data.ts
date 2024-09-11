@@ -67,9 +67,9 @@ export const navbarData: INavbarData[] = [
         label: 'Mood Today'
     },
     {
-        routeLink: 'media',
+        routeLink: 'notes',
         icon: 'fas fa-camera', // Updated from 'fal' to 'fas'
-        label: 'Media'
+        label: 'Notes'
     },
     {
         routeLink: 'settings',

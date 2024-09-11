@@ -2,11 +2,16 @@
 
 // Color Variables
 $turquoise: #44ddd0;
-$green: #27d7a1;
 $light-green: #45f69e;
 $dark-green: rgb(0, 100, 80);
-
 $light: #f8f8f8;
+$purple: #a59ad7;
+$pink: #fe76c2;
+$blue: #37c7f2;
+$light-red: #e05656;
+$light: #fafcff;
+$dark: #3d4a51;
+$green: #0bf387;
 
 // Global Styles
 //html {
@@ -19,7 +24,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Nunito', sans-serif;
-  overflow: hidden;
+  //overflow: hidden;
+  font-size: 18px !important;
+  overflow: hidden !important;
 }
 
 .centered-content {
@@ -373,6 +380,7 @@ p.control {
         align-items: center;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: add a shadow */
         cursor: pointer;
+        color: white;
 
         &:hover {
             transform: scale(1.05); /* Optional: subtle hover effect */
@@ -459,3 +467,159 @@ p.control {
     color: #777;
     text-align: center;
 }
+
+.floating-add-button {
+    position: fixed;
+    bottom: 0;
+    width: 500px;
+    border-radius: 0;
+
+    box-shadow: 0px 0px 15px 5px rgba($purple, 0.2);
+
+    height: 68px;
+    font-size: 24px;
+}
+
+app-note-card {
+    display: block;
+    margin-bottom: 25px;
+}
+
+.notes-list {
+    margin-top: 35px;
+    margin-bottom: 70px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+    padding-top: 50px;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+input, textarea {
+    &.ng-invalid.ng-touched {
+        border-color: red;
+        &:focus {
+            box-shadow: 0px 0px 0px 2px rgba(red, 0.1);
+        }
+    }
+}
+
+.layout-box {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    background-color: white;
+
+    .page-content {
+        flex-grow: 1;
+        overflow-y: scroll;
+    }
+}
+
+.top-header-bar {
+    width: 100%;
+    height: 68px;
+    background: linear-gradient(to right, $pink, $blue) !important;
+    box-shadow: 0px 0px 10px 0px rgba(black, 0.15);
+    display: flex;
+    flex-shrink: 0; // to prevent the top bar from shrinking
+
+    // Center child element (the heading)
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        color: white;
+        font-size: 24px;
+    }
+}
+
+.note-card-container {
+    position: relative;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0px 2px 15px 2px rgba(black, 0.068);
+    transition: box-shadow 0.2s ease-out;
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0px 0px 0px 4px rgba(black, 0.068);
+
+        .x-button {
+            opacity: 1;
+            transform: scale(1);
+
+            transition-delay: 0.35s;
+        }
+    }
+    
+    .note-card-content {
+        padding: 25px;
+        
+        .note-card-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: $purple;
+        }
+
+        .note-card-body {
+            position: relative;
+            color: #555;
+
+            // The maximum height before it is truncated
+            max-height: 80px;
+            overflow: hidden;
+
+            .fade-out-truncation {
+                position: absolute;
+                pointer-events: none;                
+                bottom: 0;
+                height: 50%;
+                width: 100%;
+                background: linear-gradient(to bottom, rgba(white, 0) 0%, rgba(white, 0.8) 50%, white 100%);
+            }
+        }
+    }
+}
+
+.x-button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    height: 34px;
+    width: 34px;
+    background-color: $light-red;
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    opacity: 1; // Set to 1 if you want the button visible by default
+    transform: scale(1); // Set to 1 for normal size
+  
+    &:hover {
+      background-color: darken($light-red, 2%);
+    }
+  
+    &:active {
+      background-color: darken($light-red, 4%);
+    }
+  
+    i {
+      color: white; // Ensure the icon is visible against the button background
+      font-size: 16px; // Adjust as needed
+    }
+  }  
+
+

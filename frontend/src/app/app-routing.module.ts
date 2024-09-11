@@ -8,10 +8,13 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { EditListComponent } from './pages/edit-list/edit-list.component';
 import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 import { AuthGuard } from './pages/AuthGuard';
-import { MediaComponent } from './SideNav/media/media.component';
+import { NotesComponent } from './SideNav/Notes/notes.component';
 import { MoodComponent } from './SideNav/mood/mood.component';
 import { SettingsComponent } from './SideNav/settings/settings.component';
 import { StatisticsComponent } from './SideNav/statistics/statistics.component';
+import { NoteDetailsComponent } from './Notes/pages/note-details/note-details.component';
+import { MainLayoutComponent } from './Notes/pages/main-layout/main-layout.component';
+import { NotesListComponent } from './Notes/pages/notes-list/notes-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'lists', pathMatch: 'full' },
@@ -24,11 +27,15 @@ const routes: Routes = [
   { path: 'lists/:listId', component: TaskViewComponent, canActivate: [AuthGuard] },
   { path: 'lists/:listId/new-task', component: NewTaskComponent, canActivate: [AuthGuard] },
   { path: 'lists/:listId/edit-task/:taskId', component: EditTaskComponent, canActivate: [AuthGuard] },
-  {path: 'dashboard', component: TaskViewComponent},
-  {path: 'statistics', component: StatisticsComponent},
-  {path: 'mood', component: MoodComponent},
-  {path: 'media', component: MediaComponent},
-  {path: 'settings', component: SettingsComponent}
+  { path: 'dashboard', component: TaskViewComponent},
+  { path: 'statistics', component: StatisticsComponent},
+  { path: 'mood', component: MoodComponent},
+  { path: 'settings', component: SettingsComponent},
+  { path: 'notes', component: MainLayoutComponent, children: [
+    { path: '', component: NotesListComponent },
+    { path: 'new', component: NoteDetailsComponent },
+    { path: ':id', component: NoteDetailsComponent }
+  ] }
 ];
 
 @NgModule({

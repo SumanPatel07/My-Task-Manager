@@ -18,6 +18,11 @@ import { StatisticsComponent } from './SideNav/statistics/statistics.component';
 import { SettingsComponent } from './SideNav/settings/settings.component';
 import { SublevelMenuComponent } from './SideNav/sidenav/sublevel-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotesListComponent } from './Notes/pages/notes-list/notes-list.component';
+import { MainLayoutComponent } from './Notes/pages/main-layout/main-layout.component';
+import { NoteCardComponent } from './Notes/note-card/note-card.component';
+import { NoteDetailsComponent } from './Notes/pages/note-details/note-details.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -34,13 +39,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SidenavComponent,
     StatisticsComponent,
     SettingsComponent,
-    SublevelMenuComponent
+    SublevelMenuComponent,
+    NotesListComponent,
+    MainLayoutComponent,
+    NoteCardComponent,
+    NoteDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [
     {
