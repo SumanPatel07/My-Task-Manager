@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+  "start": "nodemon app.js",
+  "prod": "node app.js"
   },
   "author": "",
   "license": "ISC",
@@ -18,5 +19,8 @@
     "lodash": "^4.17.21",
     "mongodb": "^6.9.0",
     "mongoose": "^8.5.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }
