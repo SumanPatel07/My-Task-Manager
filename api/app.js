@@ -11,9 +11,8 @@ const authRouter = require('./db/routes/auth');
 const PORT = process.env.PORT
 
 app.use(cors({
-    origin: '*',  // Use your domain or '*' to allow all origins
-    credentials: true
-  }));
+  origin: 'https://sumanpatel07.github.io' // Allow your frontend domain
+}));
 app.use(bodyParser.json());
 
 app.use('/auth', authRouter); // Setup routes for authentication
