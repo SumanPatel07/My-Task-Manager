@@ -31,7 +31,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/main-style.scss",
+              "src/main-styles.scss",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
             "scripts": []

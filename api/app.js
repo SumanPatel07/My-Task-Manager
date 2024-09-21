@@ -2,10 +2,13 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const { mongoose } = require('./db/mongoose');
+// const { mongoose } = require('./db/mongoose');
+const { dbSERVER } = require('./db/mongoose');
 const { List, Task, User } = require('./db/models');
 const jwt = require('jsonwebtoken');
 const authRouter = require('./db/routes/auth');
+
+const PORT = process.env.PORT
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -87,7 +90,7 @@ app.get('/lists', authenticate, (req, res) => {
 
 app.get('/lists/:listId', authenticate, (req, res) => {
     const { listId } = req.params;
-    if (!mongoose.isValidObjectId(listId)) {
+    if (!dbSERVER.isValidObjectId(listId)) {
         return res.status(400).send({ error: 'Invalid list ID format' });
     }
     List.findOne({ _id: listId, _userId: req.user_id })
@@ -266,6 +269,15 @@ let deleteTasksFromList = (_listId) => {
     });
 };
 
-app.listen(3000, () => {
-    console.log("Server is listening on port 3000");
-});
+// app.listen(3000, () => {
+//     console.log("Server is listening on port 3000");
+// });
+
+const server = () => {
+    dbSERVER()
+    app.listen(PORT, () => {
+        console.log('listening to port',PORT);
+        
+    })
+}
+server()
