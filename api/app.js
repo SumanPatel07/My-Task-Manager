@@ -10,9 +10,23 @@ const authRouter = require('./db/routes/auth');
 
 const PORT = process.env.PORT
 
-app.use(cors({
-  origin: 'https://sumanpatel07.github.io' // Allow your frontend domain
-}));
+const allowedOrigins = [
+    'http://localhost:4200',  // For local development
+    'https://sumanpatel07.github.io'  // For production
+  ];
+  
+  app.use(cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        // If origin is not in the allowed list, return an error
+        return callback(new Error('CORS policy not allowed for this origin'), false);
+      }
+      return callback(null, true);
+    }
+  }));
+  
 app.use(bodyParser.json());
 
 app.use('/auth', authRouter); // Setup routes for authentication
