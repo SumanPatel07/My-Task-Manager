@@ -10,7 +10,10 @@ const authRouter = require('./db/routes/auth');
 
 const PORT = process.env.PORT
 
-app.use(cors());
+app.use(cors({
+    origin: '*',  // Use your domain or '*' to allow all origins
+    credentials: true
+  }));
 app.use(bodyParser.json());
 
 app.use('/auth', authRouter); // Setup routes for authentication
