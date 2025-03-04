@@ -8,7 +8,7 @@ const { List, Task, User } = require('./db/models');
 const jwt = require('jsonwebtoken');
 const authRouter = require('./db/routes/auth');
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000;
 
 const allowedOrigins = [
     'http://localhost:4200',  // For local development

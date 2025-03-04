@@ -10,7 +10,7 @@ STEPS TO FOLLOW
     Then install the nodemon by running "npm install -g nodemon"
     run the command "nodemon app.js"
 4. if POSTMAN is not installed then download the application
-    Open postman and do a get rewuest on localhost:3000 and check the response
+    Open postman and do a get request on localhost:3000 and check the response
 5. CREATE new folder "db"
     CREATE a file "mongoose.js"
     run the command "npm install mongoose --save"
@@ -24,4 +24,32 @@ STEPS TO FOLLOW
     so better watch a youtube video and install both and then add their path to the environment variable.
 8. Then open postman and do a GET  operation on localhost:3000/lists.
     it should return a blank array
-9. 
+
+    ---------------------
+9. If you are opening the mongo db after so many days then most probably the clusters will be shut down and the db will throw error.
+10. to fix that you have to connect to the db as 
+Click on your Cluster Name (mytaskmanagerangularclu).
+
+You'll see three options:
+
+Connect
+Browse Collections
+Metrics
+Click on Connect 🔌.
+
+Choose Connect your application.
+
+Select Node.js in the dropdown.
+
+11. after changin gyour password you have to update that in the .env file also. THIS IS IMPORTANT
+
+If you don't know your MongoDB username and password, follow these steps:
+
+Go to Database Access from the left menu.
+You'll see your user with Atlas Admin role.
+Click on the Edit button.
+Reset your password if you forgot.
+
+12. Now run the command nodemon app.js and it will connect to the database.
+
+ 
